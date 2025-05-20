@@ -3,11 +3,12 @@ import { useEffect, useState } from "react";
 
 const linkStyle = {
   textDecoration: "none",
-  fontFamily: "Optima, Segoe UI, sans-serif",
-  fontSize: "0.8rem",
-  fontWeight: "500",
+  // fontFamily: "Optima, Segoe UI, sans-serif",
+  fontFamily : 'Inconsolata, monospace',
+  fontSize: "1.6rem",
+  fontWeight: "600",
   position: "relative",
-  display: "inline-block",
+  display: "inline-block"
 };
 
 const liStyle = {
@@ -96,7 +97,7 @@ export default function Header() {
               "SERVICES",
               "PROJECTS",
               "EMPLOYEE OWNER",
-              "CONTECT",
+              "CONTACT",
             ].map((label) => (
               <li key={label} style={liStyle}>
                 <a

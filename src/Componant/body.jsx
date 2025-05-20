@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import "../SOR/partners.css"
+import { div } from "framer-motion/client";
 
 
 const companyImage = process.env.PUBLIC_URL + "/hiteshbhai.png";
@@ -17,14 +19,23 @@ const imageVariant = {
 };
 
 const images = [
-  { src: process.env.PUBLIC_URL+"/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
-  { src: process.env.PUBLIC_URL+"/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
-  { src: process.env.PUBLIC_URL+"/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
+  { src: process.env.PUBLIC_URL + "/ADITI ECO - LOGO WHITE.png", alt: "Slide 1" },
 ];
 
 
 const Body = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [partnerImage, setPartnerImage] = useState(images)
 
   // Auto slide every 3 seconds
   useEffect(() => {
@@ -80,7 +91,7 @@ const Body = () => {
       <section className="company-intro intro-left">
 
 
-      <motion.div
+        <motion.div
           className="intro-image"
           initial="hidden"
           whileInView="visible"
@@ -95,6 +106,7 @@ const Body = () => {
             />
           </div>
         </motion.div>
+
         <motion.div
           className="intro-text"
           initial="hidden"
@@ -116,53 +128,76 @@ const Body = () => {
 
 
 
-        
+
       </section>
 
 
       <section className="hello text-light">
-      <div className="container">
-      <center>
-      <h2 className="text-light dori-text">
-          {Array.from("FROM OUR CLIENT").map((char, index) => (
-      <span className="char" key={index}>
-      {char === "" ? "\u00A0" : char}
-    </span>
-  ))}
-</h2>
+        <div className="container">
+          <center>
+            <h2 className="text-light dori-text">
+              {Array.from("FROM OUR CLIENT").map((char, index) => (
+                <span className="char" key={index}>
+                  {char === "" ? "\u00A0" : char}
+                </span>
+              ))}
+            </h2>
 
-        </center>
-      <div className="carousel-inner mt-5">
-        {images.map((img, index) => (
-          <div
-            key={index}
-            className={`carousel-item ${index === activeIndex ? "active" : ""}`}
-          >
+          </center>
+          <div className="carousel-inner mt-5">
+            {images.map((img, index) => (
+              <div
+                key={index}
+                className={`carousel-item ${index === activeIndex ? "active" : ""}`}
+              >
+                <center>
+                  <img src={img.src} alt={img.alt} className="d-block" />
+                </center>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-5">
             <center>
-            <img src={img.src} alt={img.alt} className="d-block" />
+              <h4>“Andres is passionate about construction and solving problems from the very top level of<br></br> the organization as demonstrated by willing executive level involvement in<br></br> solving complex problems if warranted.”</h4>
             </center>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-5">
-      <center>
-          <h4>“Andres is passionate about construction and solving problems from the very top level of<br></br> the organization as demonstrated by willing executive level involvement in<br></br> solving complex problems if warranted.”</h4>
-        </center>
-      </div>
+          {/* Dots */}
+          <div className="carousel-dots bg-dark">
+            {images.map((_, index) => (
+              <span
+                key={index}
+                className={`dot ${index === activeIndex ? "active" : ""}`}
+                onClick={() => goToSlide(index)}
+              />
+            ))}
+          </div>
+        </div>
 
-      {/* Dots */}
-      <div className="carousel-dots bg-dark">
-        {images.map((_, index) => (
-          <span
-            key={index}
-            className={`dot ${index === activeIndex ? "active" : ""}`}
-            onClick={() => goToSlide(index)}
-          />
-        ))}
-      </div>
-    </div>
-  
+      </section>
+
+      <section className="partners">
+        <div className="partner-header">
+          Our Partners
+        </div>
+        <div className="partner-item">
+           {partnerImage.map((curElem, index) => {
+      
+      const rows = Math.ceil(partnerImage.length / 4);
+      const lastRowStart = (rows - 1) * 4;
+
+      const isLastRow = index >= lastRowStart;
+      const isLastCol = (index + 1) % 4 === 0;
+      const isFirstCol = (index + 1) % 4 === 1;
+
+      return (
+        <div key={index} className={`partner-image ${isLastRow ? "no-bottom-border" : ""} ${isLastCol ? "no-right-border" : ""} ${isFirstCol ? "no-left-border" : ""}`}>
+          <img src={curElem.src} alt={curElem.alt} />
+        </div>
+      );
+    })}
+        </div>
       </section>
 
     </div>
