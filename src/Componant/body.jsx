@@ -196,7 +196,7 @@ const Body = () => {
           <img src={curElem.src} alt={curElem.alt} />
         </div>
       );
-    })}
+            })}
         </div>
       </section>
 
