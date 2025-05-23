@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "../SOR/partners.css"
 import { div } from "framer-motion/client";
+import Slider from "../Componant/Slider";
+import Footer from "../Componant/footer";
 
 
 const companyImage = process.env.PUBLIC_URL + "/hiteshbhai.png";
@@ -33,7 +35,7 @@ const images = [
 ];
 
 
-const Body = () => {
+const Home = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [partnerImage, setPartnerImage] = useState(images)
 
@@ -51,6 +53,7 @@ const Body = () => {
 
   return (
     <div className="monospace">
+      <Slider />
       <section className="company-intro intro-left">
         <motion.div
           className="intro-text"
@@ -199,9 +202,9 @@ const Body = () => {
             })}
         </div>
       </section>
-
+      <Footer />
     </div>
   );
 };
 
-export default Body;
+export default Home;

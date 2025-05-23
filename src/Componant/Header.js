@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 
 const linkStyle = {
@@ -100,8 +101,7 @@ export default function Header() {
               "CONTACT",
             ].map((label) => (
               <li key={label} style={liStyle}>
-                <a
-                  href="#"
+                < Link to={`${label.toLowerCase()}`}
                   className="font-alt-2"
                   style={{
                     ...linkStyle,
@@ -109,7 +109,7 @@ export default function Header() {
                   }}
                 >
                   <span>{label}</span>
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

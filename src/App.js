@@ -1,22 +1,19 @@
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './Componant/Header';
-import Slider from './Componant/Slider';
-
-      // ✅ added
-import ExampleComponent from './SOR/ExampleComponent';      // ✅ added
-import Body from './Componant/body';
-import Footer from './Componant/footer';
+import Home from './Pages/Home';
+import Services from './Pages/Services';
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
-      <div style={{ position: "relative", zIndex: 0 }}>
-        <Slider />
-        <Body/>
-        <Footer/>
-      </div>
+    <Routes>
+      < Route element = {<Home/>} path={"/"}> </Route>
+      < Route element = {<Home/>} path={"/home"}> </Route>
+      < Route element = {<Services/>} path={"/services"}> </Route>
+    </Routes>
+
     </BrowserRouter>
   );
 }
