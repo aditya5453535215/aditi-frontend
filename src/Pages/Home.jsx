@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import "../SOR/partners.css"
 import { div } from "framer-motion/client";
 import Slider from "../Componant/Slider";
-import Footer from "../Componant/footer";
+import Footer from "../Componant/common/Footer.jsx";
+import Headers from "../Componant/common/Header.js";
 
 
 const companyImage = process.env.PUBLIC_URL + "/hiteshbhai.png";
@@ -53,6 +54,7 @@ const Home = () => {
 
   return (
     <div className="monospace">
+      < Headers />
       <Slider />
       <section className="company-intro intro-left">
         <motion.div
