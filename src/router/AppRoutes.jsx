@@ -14,7 +14,7 @@ export default function AppRoutes() {
                  */}
                 <Route path="*" element={<NotFound />} />
                 < Route element={<Home />} path={"/"}> </Route>
-                < Route element={<Home />} path={"/home"}> </Route>
+                < Route element={<Home />} path={"/"}> </Route>
                 < Route element={<Services />} path={"/services"}> </Route>
             </Routes>
         </BrowserRouter>

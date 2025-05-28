@@ -1,8 +1,12 @@
 import React from 'react'
+import Header from '../Componant/common/Header';
 
 const Services = () => {
   return (
-    <div style={{backgroundColor : "red"}}>Services</div>
+    <div className='services-main' style={{ backgroundColor: "red" }}>
+      <Header />
+      Services
+    </div>
   )
 }
 

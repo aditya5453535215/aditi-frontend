@@ -48,7 +48,7 @@ export default function Header() {
         }}
       >
         {/* Logo Transition */}
-        <div style={{ position: "relative", height: "60px", width: "auto" }}>
+        <div style={{ position: "relative", height: "60px", width: "auto" , cursor: "pointer"}}>
           {/* White Logo */}
           <img
             src="/ADITI%20ECO%20-%20LOGO%20WHITE.png"
